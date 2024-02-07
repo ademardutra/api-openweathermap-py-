@@ -3,6 +3,11 @@ import json
 import datetime
 from time import sleep
 
+def linesize(msg):
+    print('-' * len(msg))
+    print(f'{msg}')
+    print('-' * len(msg))
+
 def line():
     print('')
 
@@ -27,11 +32,15 @@ while not exit:
         print(f'ultimo acesso: {cookie}')
 
     except Exception as e:
-        print(f'aconteceu um erro>> {e}')
+        print(f'aconteceu um erro>> {e}\n'
+		'tente novamente!!! ')
     while continuar not in 'SN':
         line()
         continuar = str(input('Quer continuar [S/N]')).upper()
         line()
     if continuar == 'N':
         exit = True  
-print(f'Você pesquisou {i}x api-OpenWeatherMap :)')
+linesize(f'Você pesquisou {i}x api-OpenWeatherMap :)')
+line()
+linesize('|Obrigado, volte sempre|')
+
